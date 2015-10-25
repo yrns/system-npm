@@ -80,6 +80,8 @@ var utils = {
 		 * @return {system-npm/parsed_npm}
 		 */
 		parse: function (moduleName, currentPackageName) {
+			// Remove the baseURL from the normalized module name.
+			moduleName = moduleName.split(System.baseURL).pop();
 			var pluginParts = moduleName.split('!');
 			var modulePathParts = pluginParts[0].split("#");
 			var versionParts = modulePathParts[0].split("@");
